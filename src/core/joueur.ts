@@ -5,6 +5,7 @@ export class Joueur {
     private _nom: string;
     private _nbLancers: number;
     private _nbLancersGagnes: number;
+    
 
     constructor(nom: string) {
         this._nom = this.assainirNom(nom);
@@ -46,6 +47,10 @@ export class Joueur {
 
     public gagner() {
         this._nbLancersGagnes++;
+    }
+
+    public ratio() {
+        return this.lancers/this.lancersGagnes;
     }
 
     public toJSON() {
