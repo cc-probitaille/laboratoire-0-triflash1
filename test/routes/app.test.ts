@@ -62,3 +62,9 @@ describe('GET /bo/gu/s/URL/', () => {
     expect(response.status).toBe(404);
   });
 });
+
+// describe('', () => {
+//   it('devrait placer en ordre décroissant', async () => {
+    
+//   })
+// })

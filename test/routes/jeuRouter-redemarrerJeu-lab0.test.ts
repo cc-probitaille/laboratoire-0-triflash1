@@ -30,4 +30,14 @@ describe('GET /api/v1/jeu/redemarrerJeu', () => {
     const response = await request.get('/api/v1/jeu/jouer/');
     expect(response.status).toBe(404);
   })
+
+it(`devrait répondre avec une mauvaise demande lorsque le joueur n'existe pas ${testNom2}`, async () => {
+        const response = await request.get('/api/v1/jeu/redemarrerJeu/' + testNom2);
+        expect(response.status).toBe(404);
+        expect(response.type).toBe("text/html");
+        expect(response.text).toInclude(testNom2);
+        expect(response.text).toInclude('/api/v1/jeu/redemarrerJeu/');
+        
+    });
+
 })

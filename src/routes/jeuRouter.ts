@@ -116,7 +116,6 @@ export class JeuRouter {
     const nom = req.params.nom;
 
     try {
-      // Invoquer l'opération système (du DSS) dans le contrôleur GRASP
       const resultat = this._controleurJeu.redemarrerJeu();
       req.flash('info', `Redémarrage de la partie`);
       res.status(200)
@@ -126,7 +125,6 @@ export class JeuRouter {
           resultat
         });
     } catch (error) {
-      // console.error(error);
       this._errorCode500(error, req, res);
     }
   }

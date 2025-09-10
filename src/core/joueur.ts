@@ -50,7 +50,7 @@ export class Joueur {
     }
 
     public ratio() {
-        return this.lancers/this.lancersGagnes;
+        return this.lancersGagnes/this.lancers;
     }
 
     public toJSON() {

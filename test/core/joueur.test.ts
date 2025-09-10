@@ -51,4 +51,20 @@ describe('Joueur test', () => {
     expect(joueur.toJSON()).toEqual({ "lancers": 0, "lancersGagnes": 0, "nom": "yvan" });
   });
 
+  it('devrait retourner le bon ratio', () => {
+    const joueur = new Joueur('yvan');
+    joueur.lancer();
+    joueur.lancer();
+    if (joueur.lancersGagnes === 2) {
+      expect(joueur.ratio()).toEqual(1);
+      expect(joueur.lancers).toEqual(2);
+    }else if (joueur.lancersGagnes === 1) {
+      expect(joueur.ratio()).toEqual(0.5);
+      expect(joueur.lancers).toEqual(2);
+    } else {
+      expect(joueur.ratio()).toEqual(0);
+      expect(joueur.lancers).toEqual(2);
+    }
+  })
+
 });
