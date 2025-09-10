@@ -14,15 +14,20 @@ beforeAll(async () => {
 });
 
 describe('GET /api/v1/jeu/redemarrerJeu', () => {
-  it("Devrais pouvoir relancer le jeu sans joueurs", async () => {
-    const response = await request.get('/api/v1/jeu/redemarrerJeu/');
+  it("devrait pouvoir relancer le jeu sans joueurs", async () => {
+    const response = await request.get('/api/v1/jeu/redemarrerJeu');
     expect(response.status).toBe(200);
 
   })
 
-  it('devrait rendre 0 pour le nombre de Joueurs', async () => {
+  it("devrait rendre 0 pour le nombre de Joueurs", async () => {
       const joueursJSON = jeuRoutes.controleurJeu.joueurs;
       const joueursArray = JSON.parse(joueursJSON);
       expect(joueursArray.length).toBe(0);
     });
+
+  it("devrait ne pas pouvoir se relancer après un redémarrage", async () => {
+    const response = await request.get('/api/v1/jeu/jouer/');
+    expect(response.status).toBe(404);
+  })
 })
